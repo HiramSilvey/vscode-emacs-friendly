@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import {Operation} from './operation';
+import { Operation } from './operation';
 
 var inMarkMode: boolean = false;
 var markHasMoved: boolean = false;
@@ -29,18 +29,32 @@ export function activate(context: vscode.ExtensionContext): void {
 
     cursorMoves.forEach(element => {
         context.subscriptions.push(vscode.commands.registerCommand(
-            "emacs."+element, () => {
+            "emacs." + element, () => {
                 if (inMarkMode) {
-                    markHasMoved  = true;
+                    markHasMoved = true;
                 }
                 vscode.commands.executeCommand(
                     inMarkMode ?
-                    element+"Select" :
-                    element
+                        element + "Select" :
+                        element
                 );
             })
         )
     });
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand("emacs.cursorFullHome", () => {
+            if (inMarkMode) {
+                markHasMoved = true;
+            }
+            vscode.commands.executeCommand("cursorMove", {
+                to: "wrappedLineStart",
+                by: "line",
+                select: inMarkMode ? true : false,
+                value: 1
+            });
+        })
+    );
 
     initMarkMode(context);
 }

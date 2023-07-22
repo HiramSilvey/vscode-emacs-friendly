@@ -1,3 +1,7 @@
+## 0.9.1 (2023-07-22)
+- Fixed C-a to actually move to the true start of the line rather than just the first non-whitespace character
+- Added M-m to move to the first non-whitespace character of the line
+
 ## 0.9.0 (2019-05-06)
 - Fixed focus and movement keys interaction when find widget is open
 - Fixed movement keys in terminal

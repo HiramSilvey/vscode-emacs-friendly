@@ -123,23 +123,33 @@
             },
             {
                 "key": "home",
-                "command": "emacs.cursorHome",
+                "command": "emacs.cursorFullHome",
                 "when": "editorTextFocus"
             },
             {
                 "key": "ctrl+a",
-                "command": "emacs.cursorHome",
+                "command": "emacs.cursorFullHome",
                 "when": "editorTextFocus"
             },
             {
                 "key": "ctrl+a",
-                "command": "emacs.cursorHome",
+                "command": "emacs.cursorFullHome",
                 "when": "terminalFocus"
             },
             {
                 "key": "ctrl+a",
                 "command": "closeFindWidget",
                 "when": "editorFocus && findWidgetVisible"
+            },
+            {
+                "key": "alt+m",
+                "command": "emacs.cursorHome",
+                "when": "editorTextFocus"
+            },
+            {
+                "key": "alt+m",
+                "command": "emacs.cursorHome",
+                "when": "terminalFocus"
             },
             {
                 "key": "end",
@@ -417,7 +427,7 @@
                 "key": "ctrl+x r",
                 "command": "workbench.action.openRecent"
             },
-			{
+            {
                 "key": "ctrl+x z",
                 "command": "workbench.action.toggleZenMode"
             },
